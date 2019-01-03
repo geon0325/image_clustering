@@ -17,9 +17,14 @@ $ python3 evaluation.py</code></pre>
 ## Notes
 
 Our model contains additional configuration "DROP_P" in config.py
+that means drop probability of feature pairs.
+It makes our model can run using less memory
 
 In config.py
-<pre><code>DROP_P =0.0</code></pre>
-make our model can run using less memory
+<pre><code>DROP_P = 0.0</code></pre>
 
-It is drop probability of feature pairs.
+Furthermore, our repository contains pre-trained model of two classifier fc_nn and classifier
+
+When testing, these models are used for image clustering
+
+If you wants to retrain our model, run "training.py" that saves models and weights after training
