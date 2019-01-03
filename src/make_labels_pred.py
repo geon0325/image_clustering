@@ -90,7 +90,7 @@ def clustering_k_given(X_feature, k):
 
 def clustering_default(X_feature):
     k = int(len(X_feature) / NUM_IMGS_PER_MODEL)
-    if k > len(X_feature):
+    if k > len(X_feature) or k < 2:
         X_comb, X_index = test_data_combination(X_feature, DROP_P)
         pred_link = classify_combination(X_comb)
         pred_label = clustering_k_not_given(X_feature, pred_link, X_index)
@@ -117,7 +117,10 @@ if __name__ == '__main__':
         if int(sys.argv[1]) == -1:
             # k not given (estimate k)
             # DATA COMBINATION
-            X_comb, X_index = test_data_combination(X_feature, DROP_P)
+            if len(sys.argv) == 2:
+                X_comb, X_index = test_data_combination(X_feature, DROP_P)
+            else:
+                X_comb, X_index = test_data_combination(X_feature, float(sys.argv[2]))
             # CLASSIFIER NN
             pred_link = classify_combination(X_comb)
             # CLUSTERING
