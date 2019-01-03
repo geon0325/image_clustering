@@ -76,6 +76,8 @@ def clustering_k_not_given(X_feature, pred_link, X_index):
                 optimal_k = int((2 + i + 2 + i + window_size) / 2)
     except:
         optimal_k = J_list.index(min(J_list)) + 2
+    if optimal_k == -1:
+        optimal_k = J_list.index(min(J_list)) + 2
         
     kmeans = KMeans(n_clusters=optimal_k, n_init=20, n_jobs=4, init="k-means++")
     pred_label = kmeans.fit_predict(X_feature)
