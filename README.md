@@ -19,7 +19,7 @@ $ python3 evaluation.py</code></pre>
 Our model contains additional configuration "DROP_P" in config.py
 
 In config.py
-코드 DROP_P =0.0
+<pre><code>DROP_P =0.0</code></pre>
 make our model can run using less memory
 
 It is drop probability of feature pairs.
