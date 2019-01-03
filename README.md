@@ -19,22 +19,16 @@ Our repository contains pre-trained model of two classifiers.
 + fc_nn_model.json
 + fc_nn_weight.h5
 
-This two files are each feature extracting FC layer's structure and weights. 
+These two files are each feature extracting FC layer's structure and weights. 
 + classifier_model.json
 + classifier_weight.h5
 
-This two files are each pair classifier structure and weights.
-
-If you want to retrain our model, you can run "training.py"
-<pre><code>$ python3 training.py</pre></code>
-This code retrain our model and save above 4 files in directory that training.py is in.
+If you want to retrain the model, you can run "training.py" with training dataset path following.
+<pre><code>$ python3 training.py ../train_dataset</pre></code>
 
 ## Notes
-Our model contains additional configuration "DROP_P" in config.py
-that means drop probability of feature pairs.
-It makes our model can run using less memory.
-
-In config.py line 22
+Our model contains additional configuration "DROP_P" in config.py. It enables our model run using less memory. If your computer's memory seems to be unbearable, raise DROP_P by modifying values in config.py line 22
 <pre><code>DROP_P = 0.0</code></pre>
-
+or run make_labels_pred.py giving additional argument.
+<pre><code>$ python3 make_labels_pred.py -1 0.95</code></pre>
 
