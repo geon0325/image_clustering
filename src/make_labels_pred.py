@@ -65,13 +65,18 @@ def clustering_k_not_given(X_feature, pred_link, X_index):
         pred_label = kmeans.fit_predict(X_feature)
         J = objective_value(pred_link, pred_label, X_index)
         J_list.append(J)
-    window_size = 5
-    J_sum_min = 1e10
+    
     optimal_k = -1
-    for i in range(len(J_list) - window_size + 1):
-        if sum(J_list[i:i+window_size]) < J_sum_min:
-            J_sum_min = sum(J_list[i:i+window_size])
-            optimal_k = int(i + i + window_size)
+    try:
+        window_size = 5
+        J_sum_min = 1e10
+        for i in range(len(J_list) - window_size + 1):
+            if sum(J_list[i:i+window_size]) < J_sum_min:
+                J_sum_min = sum(J_list[i:i+window_size])
+                optimal_k = int((2 + i + 2 + i + window_size) / 2)
+    except:
+        optimal_k = J_list.index(min(J_list)) + 2
+        
     kmeans = KMeans(n_clusters=optimal_k, n_init=20, n_jobs=4, init="k-means++")
     pred_label = kmeans.fit_predict(X_feature)
     return pred_label
@@ -85,8 +90,13 @@ def clustering_k_given(X_feature, k):
 
 def clustering_default(X_feature):
     k = int(len(X_feature) / NUM_IMGS_PER_MODEL)
-    kmeans = KMeans(n_clusters=k, n_init=20, n_jobs=4, init="k-means++")
-    pred_label = kmeans.fit_predict(X_feature)
+    if k > len(X_feature):
+        X_comb, X_index = test_data_combination(X_feature, DROP_P)
+        pred_link = classify_combination(X_comb)
+        pred_label = clustering_k_not_given(X_feature, pred_link, X_index)
+    else:
+        kmeans = KMeans(n_clusters=k, n_init=20, n_jobs=4, init="k-means++")
+        pred_label = kmeans.fit_predict(X_feature)
     return pred_label
 
 
