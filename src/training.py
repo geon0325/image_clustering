@@ -33,7 +33,7 @@ def vgg19_feature_extraction(dataset_path):
         if temp_cnt % 100 == 0:
             print("VGG19 ", round(temp_cnt/len(img_list)*100,3), "% complete", end='\r')
         temp_cnt = temp_cnt + 1
-        img_path = dataset_path + img_file
+        img_path = dataset_path + '/' + img_file
         img = image.load_img(img_path, target_size=(224,224))
         x = image.img_to_array(img)
         x = np.expand_dims(x, axis=0)
