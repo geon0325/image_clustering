@@ -60,7 +60,7 @@ def objective_value(pred_link, pred_label, X_index):
 
 def clustering_k_not_given(X_feature, pred_link, X_index):
     J_list = []
-    for k in range(2,int(min(MAX_CLUSTER,len(X_feature)/2))):
+    for k in range(2,int(min(MAX_CLUSTER,len(X_feature)/2 + 1))):
         kmeans = KMeans(n_clusters=k, n_init=20, n_jobs=4, init="k-means++")
         pred_label = kmeans.fit_predict(X_feature)
         J = objective_value(pred_link, pred_label, X_index)
