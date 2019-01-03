@@ -13,3 +13,13 @@
 ## Evaluation
 <pre><code>$ python3 make_labels_true.py
 $ python3 evaluation.py</code></pre>
+
+## Notes
+
+Our model contains additional configuration "DROP_P" in config.py
+
+In config.py
+코드 DROP_P =0.0
+make our model can run using less memory
+
+It is drop probability of feature pairs.
