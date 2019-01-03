@@ -11,6 +11,7 @@ from sklearn.cluster import KMeans, SpectralClustering
 from sklearn import metrics
 import numpy as np
 import os
+import sys
 
 class_cnt = -1
 
@@ -205,8 +206,12 @@ def classifer(X_train, Y_train, X_valid, Y_valid):
 
 if __name__ == '__main__':
     
+    if len(sys.argv) < 2:
+        print('Training dataset path not given!')
+        sys.exit()
+    
     # VGG19 FEATURE EXTRACTION
-    X_train, Y_train_lab, Y_train_cat = vgg19_feature_extraction("../train_augmentation/")
+    X_train, Y_train_lab, Y_train_cat = vgg19_feature_extraction(sys.argv[1])
     class_cnt = len(set(Y_train_lab))
 
     # FC FEATURE EXTRACTION
