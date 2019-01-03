@@ -5,9 +5,9 @@
 ## Image Clustering (Test)
 + Default (NUM_IMGS_PER_MODEL = 70)
 <pre><code>$ python3 make_labels_pred.py</code></pre>
-+ K given
++ k (# of clusters) given
 <pre><code>$ python3 make_labels_pred.py 'k'</code></pre>
-+ K not given (estimate k)
++ k (# of clusters) not given (estimate k)
 <pre><code>$ python3 make_labels_pred.py -1</code></pre>
 
 ## Evaluation
