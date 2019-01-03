@@ -11,7 +11,5 @@
 <pre><code>$ python3 make_labels_pred.py -1</code></pre>
 
 ## Evaluation
-<pre><code>
-$ python3 make_labels_true.py
-$ python3 evaluation.py
-</code></pre>
+<pre><code>$ python3 make_labels_true.py
+$ python3 evaluation.py</code></pre>
