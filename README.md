@@ -19,8 +19,8 @@ Our repository contains pre-trained model of two classifiers.
 + fc_nn_model.json
 + fc_nn_weight.h5
 This two files are each feature extracting FC layer's structure and weights. 
-+classifier_model.json
-+classifier_weight.h5
++ classifier_model.json
++ classifier_weight.h5
 This two files are each pair classifier structure and weights.
 
 If you want to retrain our model, you can run "training.py"
