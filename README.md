@@ -10,7 +10,7 @@
 + k (# of clusters) not given (estimate k)
 <pre><code>$ python3 make_labels_pred.py -1</code></pre>
 
-* Running time depends on the size of the testing dataset.
+Running time depends on the size of the testing dataset.
 
 ## Evaluation
 <pre><code>$ python3 make_labels_true.py
