@@ -2,6 +2,17 @@
 
 <a href="https://github.com/geonlee0325/image_clustering/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg">
 
+## Model Architecture
+1. Preprocessing
+  - 중복 이미지 제거
+  - Image Augmentation
+2. Feature Extraction
+  - VGGNet
+  - Fully Connected NN
+3. Clustering
+  - K-Means
+  - Estimating K
+
 ## Image Clustering (Test)
 + Default (NUM_IMGS_PER_MODEL = 70)
 <pre><code>$ python3 make_labels_pred.py</code></pre>
