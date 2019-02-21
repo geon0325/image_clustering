@@ -44,7 +44,8 @@ These two files are each feature extracting FC layer's structure and weights.
 If you want to retrain the model, you can run "training.py" with training dataset path following.
 <pre><code>$ python3 training.py ../train_dataset</pre></code>
 
-## Notes
+## Note
+OLD VERSION
 Our model contains additional configuration "DROP_P" in config.py. It enables our model run using less memory. If your computer's memory seems to be unbearable, raise DROP_P by modifying values in config.py line 22
 <pre><code>DROP_P = 0.0</code></pre>
 or run make_labels_pred.py giving additional argument.
