@@ -14,6 +14,10 @@
   - Estimating K
 
 ## Image Clustering (Test)
+NEW VERSION
++ Default (NUM_IMGS_PER_MODEL = 70)
+<pre><code>$ bash make_pred.sh</code></pre>
+OLD VERSION
 + Default (NUM_IMGS_PER_MODEL = 70)
 <pre><code>$ python3 make_labels_pred.py</code></pre>
 + k (# of clusters) given
