@@ -18,6 +18,6 @@ LABELS_TRUE = "labels_true"     # 정답 레이블
 LABELS_PRED = "labels_pred"     # 예측 레이블
 
 # for clustering
-NUM_IMGS_PER_MODEL = 70         # 클러스터당 평균 이미지수
+NUM_IMGS_PER_MODEL = 1         # 클러스터당 평균 이미지수
 DROP_P = 0.0                    # Combination drop 
 MAX_CLUSTER = 250               # 최대 클러스터 개수

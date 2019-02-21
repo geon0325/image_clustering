@@ -148,9 +148,9 @@ def fully_connected_feature_extraction(X_train, Y_train):
     model.fit(X_train, Y_train, nb_epoch=training_epochs, batch_size=batch_size)
 
     model_json = model.to_json()
-    with open("fc_nn_model.json","w") as json_file:
-        json_file.write(model_json)
-    model.save_weights("fc_nn_weight.h5")
+    # with open("fc_nn_model.json","w") as json_file:
+    #     json_file.write(model_json)
+    # model.save_weights("fc_nn_weight.h5")
 
     feature_model = Sequential()
     feature_model.add(Dense(256, input_dim=512*7*7, weights=model.layers[0].get_weights()))
@@ -198,9 +198,9 @@ def classifer(X_train, Y_train, X_valid, Y_valid):
     model.fit(X_train, Y_train, nb_epoch=training_epochs, batch_size=batch_size)
 
     model_json = model.to_json()
-    with open("classifier_model.json","w") as json_file:
-        json_file.write(model_json)
-    model.save_weights("classifier_weight.h5")
+    # with open("classifier_model.json","w") as json_file:
+    #     json_file.write(model_json)
+    # model.save_weights("classifier_weight.h5")
 
 
 
@@ -217,8 +217,13 @@ if __name__ == '__main__':
     # FC FEATURE EXTRACTION
     X_train = fully_connected_feature_extraction(X_train, Y_train_cat)
 
+    print(X_train.shape, X_train.dtype)
+    print(Y_train_cat.shape, Y_train_cat.dtype)
+    X_train.tofile('./features.npy')
+    Y_train_cat.tofile('./labels.npy')
+
     # RANDOM SAMPLING
-    X_train_sample, Y_train_sample = random_sampling(X_train, Y_train_lab, class_cnt)
+    # X_train_sample, Y_train_sample = random_sampling(X_train, Y_train_lab, class_cnt)
 
     # CLASSIFIER NN
-    classifer(X_train_sample, Y_train_sample, X_train_sample, Y_train_sample)
+    # classifer(X_train_sample, Y_train_sample, X_train_sample, Y_train_sample)
