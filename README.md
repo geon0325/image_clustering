@@ -9,6 +9,7 @@
 2. Feature Extraction
   - VGGNet
   - Fully Connected NN
+  - DELF
 3. Clustering
   - K-Means
   - Estimating K
